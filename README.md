@@ -1,6 +1,3 @@
-# ImportModule---Powershell
-Repositório para administração de ad
-
 # Importar os dados do arquivo CSV
 $users = Import-Csv -Path "C:\temp\usuarios.csv"
 
