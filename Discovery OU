@@ -1,0 +1,1 @@
+Get-ADUser -Identity "nome.usuario" -Properties DistinguishedName | Select-Object Name, DistinguishedName
