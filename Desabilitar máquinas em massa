@@ -1,0 +1,13 @@
+ # Importar o módulo do Active Directory
+>> Import-Module ActiveDirectory
+>>
+>> # Especificar o caminho para o arquivo de texto com a lista de computadores
+>> $Pclist = Get-Content C:\Users\s-ajunior\Documents\Disable.txt
+>>
+>> # Iterar sobre cada computador na lista e desabilitar a conta
+>> foreach($pc in $Pclist) {
+>>     # O sinal de dólar ($) é necessário no final do nome para contas de computador no AD
+>>     Disable-ADComputer -Identity "$pc$"
+>>     Write-Host "Máquina $pc disabilitada."
+>> }
+>>
