@@ -1,0 +1,1 @@
+Get-ADGroupMember -Identity "BRA_UD_TI_SITES-BR-1944957066" | Select-Object Name, ObjectClass | Export-Csv -Path "C:\Users\s-ajunior\Desktop\MembrosDoGrupo_ti_sites.csv" -NoTypeInformation -Encoding utf8
