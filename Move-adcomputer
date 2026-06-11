@@ -1,0 +1,18 @@
+# Importa o módulo do Active Directory
+>> Import-Module ActiveDirectory
+>>
+>> # Define o caminho da OU de destino
+>> $DestinoOU = "OU=Stations,OU=BRA_RIBEIRAO_DAS_NEVES_AMAZON,OU=Brazil,OU=Sites,DC=ID-Group,DC=dom"
+>>
+>> # Lista de computadores a serem movidos (pode ser um arquivo CSV ou uma lista manual)
+>> $Computadores = Get-Content -Path "C:\Users\s-ajunior\Documents\computers.txt"  # Cada linha do arquivo deve conter o nome do computador
+>>
+>> # Loop para mover cada computador
+>> foreach ($Computador in $Computadores) {
+>>     # Obtém o objeto do computador no AD
+>>     $ComputadorAD = Get-ADComputer -Identity $Computador
+>>
+>>     # Move o computador para a OU de destino
+>>     Move-ADObject -Identity $ComputadorAD.DistinguishedName -TargetPath $DestinoOU
+>>
+>>     Write-Host "Computador $Computador movido para $DestinoOU com sucesso!" -ForegroundColor Green
